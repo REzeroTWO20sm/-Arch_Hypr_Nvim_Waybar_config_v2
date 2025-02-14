@@ -1,0 +1,4 @@
+#!/bin/bash
+
+swww init
+swww img /home/zero/Pictures/anim_light_fly.gif

@@ -1,0 +1,67 @@
+   {
+     "layer": "top",
+     "position": "top",
+     "height": 35,
+     "modules-left": ["custom/script","custom/scriptt","custom/ideasScript"],
+     "modules-right": ["custom/brightness","custom/volume","custom/keyboard","custom/keyboard_state","battery","power-profiles-daemon"],
+     "custom/script": {
+       "exec": "echo '    open firefox    '",
+       "return-type": "click",
+       "interval": 60,
+       "on-click": "/bin/sh /home/zero/Documents/button.sh",
+       "tooltip": false
+     },
+     "custom/scriptt": {
+       "exec": "echo '    open telegram   '",
+       "return-type": "click",
+       "interval": 60,
+       "on-click": "/bin/sh /home/zero/Documents/buttonn.sh",
+       "tooltip": false
+     },
+     "custom/ideasScript": {
+       "exec": "echo '  open/change ideas  '",
+       "return-type": "none",
+       "on-click": "/home/zero/Documents/ideas.sh",
+       "interval": 0
+     },
+     "custom/brightness": {
+       "format": "   {}   ",
+       "return-type": "json",
+       "exec": "/home/zero/Documents/brightness.sh",
+       "interval": 1,
+       "on-click": "brightnessctl s 5%+",
+       "on-scroll-up": "brightnessctl s 5%+",
+       "on-scroll-down": "brightnessctl s 5%-"
+     },
+     "custom/volume": {
+       "exec": "amixer get Master | egrep -o '[0-9]{1,3}%'",
+       "interval": 1,
+       "format": "   {}   "
+     },
+     "battery": {
+       "format": " {capacity}%    ",
+       "interval": 30,
+       "tooltip": true
+     },
+     "power-profiles-daemon": {
+       "format": "{icon}",
+       "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+       "tooltip": true,
+       "format-icons": {
+         "performance": "⚡⚡⚡",
+         "balanced": " ⚡⚡ ",
+         "power-saver": "  ⚡  "
+       }
+     },
+     "custom/keyboard": {
+       "exec": "/home/zero/Documents/keyboard.sh",
+       "interval": 0,
+       "return-type": "json",
+       "on-click": "/home/zero/Documents/keyboard.sh"
+     },
+     "custom/keyboard_state": {
+       "exec": "/home/zero/Documents/keyboard_state.sh",
+       "interval": 1,
+       "format": "{}"
+     }
+}
